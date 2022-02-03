@@ -5,7 +5,7 @@ import 'package:metro/services/colors.dart';
 import 'package:metro/services/route_management.dart';
 import 'package:metro/services/settings.dart';
 import 'package:metro/services/text/texts.dart';
-import 'package:metro/views/widgets/texts/styled_text.dart';
+import 'package:metro/views/widgets/share/texts/styled_text.dart';
 
 class Header extends StatelessWidget {
   const Header({this.hasBackArrow = true, this.title, this.leftWidget, Key? key}) : super(key: key);

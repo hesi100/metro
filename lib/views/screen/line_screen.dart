@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:metro/controllers/main_screen_controller.dart';
 import 'package:metro/model/line_model.dart';
 import 'package:metro/services/route_management.dart';
 import 'package:metro/views/screen/station_screen.dart';
-import 'package:metro/views/widgets/headers/header.dart';
-import 'package:metro/views/widgets/texts/styled_text.dart';
+import 'package:metro/views/widgets/line/station_item.dart';
+import 'package:metro/views/widgets/share/headers/header.dart';
 
 
 class LineScreen extends StatelessWidget {
@@ -30,15 +28,7 @@ class LineScreen extends StatelessWidget {
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
-                          return InkWell(
-                            onTap: (){
-                              RouteManagement.goToPage(StationScreen(station: line.stations[index]));
-                              },
-                            child: Container(
-                              height: 200,
-                              child: StyledTextShow(line.stations[index].name),
-                            ),
-                          );
+                          return StationItem(station: line.stations[index]);
                         }),
                   ),)
               ],

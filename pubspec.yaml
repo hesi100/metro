@@ -24,21 +24,32 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^1.0.4
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
 
-# The following section is specific to Flutter.
 flutter:
   uses-material-design: true
   assets:
     - assets/svgs/
+
+  fonts:
+    - family: iranYekan
+      fonts:
+        - asset: assets/fonts/IRANYekanMobileBlack.ttf
+          weight: 900
+        - asset: assets/fonts/IRANYekanExtraBoldFaNum.ttf
+          weight: 800
+        - asset: assets/fonts/IRANYekanMobileBold.ttf
+          weight: 700
+        - asset: assets/fonts/IRANYekanMobileMedium.ttf
+          weight: 500
+        - asset: assets/fonts/IRANYekanMobileRegular.ttf
+          weight: 400
+        - asset: assets/fonts/IRANYekanMobileLight.ttf
+          weight: 300
+        - asset: assets/fonts/IRANYekanMobileThin.ttf
+          weight: 100
+
 
 
 

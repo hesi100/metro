@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:metro/controllers/main_screen_controller.dart';
 import 'package:metro/services/route_management.dart';
-import 'package:metro/views/widgets/headers/header.dart';
-import 'package:metro/views/widgets/texts/styled_text.dart';
+import 'package:metro/views/widgets/main_screen/line_item.dart';
+import 'package:metro/views/widgets/share/headers/header.dart';
 
 import 'line_screen.dart';
 
@@ -33,15 +33,7 @@ class MainScreen extends StatelessWidget {
                             physics: const NeverScrollableScrollPhysics(),
                             shrinkWrap: true,
                             itemBuilder: (context, index) {
-                              return InkWell(
-                                onTap: (){
-                                  RouteManagement.goToPage(LineScreen(line: controller.lines[index]));
-                                },
-                                child: Container(
-                                  height: 200,
-                                  child: StyledTextShow(controller.lines[index].name),
-                                ),
-                              );
+                              return LineItem(line: controller.lines[index],);
                             }),
                       ),)
                   ],
