@@ -20,23 +20,31 @@ class MainScreen extends StatelessWidget {
           init: MainScreenController(),
           builder: (controller){
             return Scaffold(
-                body: Column(
-                  children: [
-                    const Header(
-                      title: 'خط ها',
-                      hasBackArrow: true,
-                    ),
-                    Expanded(
-                      child: SingleChildScrollView(
-                        child: ListView.builder(
-                            itemCount: controller.lines.length,
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemBuilder: (context, index) {
-                              return LineItem(line: controller.lines[index],);
-                            }),
-                      ),)
-                  ],
+
+                body: Container(
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/homepage.png"),
+                        fit: BoxFit.cover),
+                  ),
+                  child: Column(
+                    children: [
+                      const Header(
+                        title: 'خط ها',
+                        hasBackArrow: true,
+                      ),
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: ListView.builder(
+                              itemCount: controller.lines.length,
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemBuilder: (context, index) {
+                                return LineItem(line: controller.lines[index],);
+                              }),
+                        ),)
+                    ],
+                  ),
                 ));
           },
         ),
