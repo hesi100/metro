@@ -11,13 +11,13 @@ class Button extends StatefulWidget {
     this.color = mainColor,
     this.rightIcon,
     this.leftIcon,
-    this.textColor = Colors.white,
+    this.textColor = semiBlackText,
     this.borderRadius = const BorderRadius.all(Radius.circular(8)),
     this.fontSize = font16,
     this.borderColor = Colors.transparent,
     this.bold = false,
     this.loading = false,
-    this.height = 48,
+    this.height = 40,
     this.width,
     Key? key,
   }) : super(key: key);
@@ -57,6 +57,12 @@ class _ButtonState extends State<Button> {
               decoration: BoxDecoration(
                   color: widget.color,
                   borderRadius: widget.borderRadius,
+                  gradient: const RadialGradient(
+                    colors: [mainColorDark,mainColor,],
+                    stops: [0.2,0.8],
+                    focalRadius: 5,
+                    focal: Alignment.center
+                  ),
                   border: Border.all(color: widget.borderColor, width: 1.5)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

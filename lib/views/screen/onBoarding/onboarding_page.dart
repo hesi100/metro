@@ -26,60 +26,51 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    return new Stack(
-      children: [
-        Column(
-          children: [
-            Expanded(child: GetBuilder<OnBoardingController>(
-              builder: (controller) {
-                return Container(
-                    height: height * .85,
-                    margin: EdgeInsets.only(
-                      right: 20,
-                      left: 20,
-                      bottom: height * .08,
+    return GetBuilder<OnBoardingController>(
+      builder: (controller) {
+        return Container(
+            margin: EdgeInsets.only(
+              right: 32,
+              left: 32,
+              bottom: height * .08,
+            ),
+            width: width,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: <Widget>[
+                Align(
+                    alignment: Alignment.center,
+                    child: AnimatedContainer(
+                      width: controller.currentPage == widget.item['id'] - 1 ? width * 0.6 : 0,
+                      child: Image.asset(
+                        widget.item['img'],
+                        width:  width * 0.6,
+                      ),
+                      curve: Curves.easeOut,
+                      duration: Duration(milliseconds: 500),
+                    )),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 24),
+                      child: StyledTextShow(widget.item['title'],
+                          size: font24, direction: TextAlign.center, color: darkGrayText, bold: true),
                     ),
-                    width: width,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Align(
-                            alignment: Alignment.center,
-                            child: AnimatedContainer(
-                              width: controller.currentPage == widget.item['id'] - 1 ? width * 0.7 : 0,
-                              child: Image.asset(
-                                widget.item['img'],
-                                width: widget.item['id'] == 4 ? width * 0.6 : width * 0.7,
-                              ),
-                              curve: Curves.easeOut,
-                              duration: Duration(milliseconds: 500),
-                            )),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 50),
-                              child: StyledTextShow(widget.item['title'],
-                                  size: font24, direction: TextAlign.center, color: darkGrayText, bold: true),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(top: 20, bottom: 20),
-                              child: Text(
-                                widget.item['des'],
-                                style: textStyle(font16, blackText, height: 1.2),
-                                textAlign: TextAlign.center,
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ));
-              },
-            )),
-          ],
-        ),
-      ],
+                    Container(
+                      margin: EdgeInsets.only(top: 16, bottom: 16),
+                      child: Text(
+                        widget.item['des'],
+                        style: textStyle(font16, blackText, height: 1.2),
+                        textAlign: TextAlign.center,
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ));
+      },
     );
   }
 }
