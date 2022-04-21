@@ -17,7 +17,8 @@ class Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 55,
+      height: 48,
+      color: white,
       padding: EdgeInsets.only(right: hasBackArrow ? 20 : 29),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,8 +46,9 @@ class Header extends StatelessWidget {
               title != ''
                   ? StyledTextShow(
                       title!,
-                      size: font18,
-                      color: black,
+                      size: font20,
+                      color: lighterGrayText,
+                bold: true,
                     )
                   : Container()
             ],

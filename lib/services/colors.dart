@@ -86,7 +86,7 @@ const Color blueishText = Color(0xff263238);
 const Color darkGrayText = Color(0xff2A2A2A);
 const Color semiBlackText = Color(0xff212121);
 const Color blackText = Color(0xff000000);
-
+const Color lighterGrayText = Color(0xff535353);
 // Text Colors
 
 const Color textFieldContainer = Color(0xFFD4D4D5);
@@ -127,4 +127,4 @@ const Color profileSvgColor = Color(0xff3A3B3F);
 const Color soLightGray = Color(0xff686868);
 const Color lightNeonGreen = Color(0xff79F5DF);
 const Color darkRegularGrayText = Color(0xff424243);
-
+const Color searchBackground = Color(0xffA7A7BD);
