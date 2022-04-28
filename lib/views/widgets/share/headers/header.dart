@@ -48,7 +48,7 @@ class Header extends StatelessWidget {
                       title!,
                       size: font20,
                       color: lighterGrayText,
-                bold: true,
+                      bold: true,
                     )
                   : Container()
             ],

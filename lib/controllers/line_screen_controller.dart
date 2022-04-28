@@ -1,17 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:metro/model/line_model.dart';
 import 'package:metro/model/station_model.dart';
-import 'package:metro/model/time_model.dart';
 import 'package:metro/services/stations/first_line_handler.dart';
 
 import '../model/texts/text_in_model.dart';
 
-class LineController extends GetxController{
-  LineController({required this.line});
+class LineController extends GetxController {
+  LineModel line = LineModel(name: "خط 1", stations: FirstLineHandler.getLineStations());
 
-  final LineModel line;
   List<StationModel> stations = [];
 
   TextInModel searchText = TextInModel();
@@ -19,7 +15,7 @@ class LineController extends GetxController{
   void onSearchTextChange(TextInModel text) {
     stations.clear();
     line.stations.forEach((element) {
-      if(element.name.contains(text.textController.text)){
+      if (element.name.contains(text.textController.text)) {
         stations.add(element);
       }
     });
@@ -30,6 +26,4 @@ class LineController extends GetxController{
     stations.addAll(line.stations);
     super.onInit();
   }
-
-
 }

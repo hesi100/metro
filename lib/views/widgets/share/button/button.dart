@@ -57,12 +57,13 @@ class _ButtonState extends State<Button> {
               decoration: BoxDecoration(
                   color: widget.color,
                   borderRadius: widget.borderRadius,
-                  gradient: const RadialGradient(
-                    colors: [mainColorDark,mainColor,],
-                    stops: [0.2,0.8],
-                    focalRadius: 5,
-                    focal: Alignment.center
-                  ),
+                  gradient: const RadialGradient(colors: [
+                    mainColorDark,
+                    mainColor,
+                  ], stops: [
+                    0.2,
+                    0.8
+                  ], focalRadius: 5, focal: Alignment.center),
                   border: Border.all(color: widget.borderColor, width: 1.5)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

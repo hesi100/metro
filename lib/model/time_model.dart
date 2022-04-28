@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class TimeModel{
+class TimeModel {
   TimeModel({required this.time});
+
   DateTime time = DateTime.now();
   Color color = Colors.red;
 }

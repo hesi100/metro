@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:metro/views/screen/line_screen.dart';
 
 import '../../services/route_management.dart';
-import '../../views/screen/main_screen.dart';
 
 class OnBoardingController extends GetxController {
   int currentPage = 0;
@@ -31,22 +31,18 @@ class OnBoardingController extends GetxController {
     },
   ];
 
-  void onSkipTap(){
+  void onSkipTap() {
     RouteManagement.back();
-    RouteManagement.goToPage(const MainScreen());
+    RouteManagement.goToPage(const LineScreen());
   }
 
-  void onButtonTap(){
-    if(currentPage == 2){
-      RouteManagement.goToPage(const MainScreen());
-
-    }else{
+  void onButtonTap() {
+    if (currentPage == 2) {
+      RouteManagement.goToPage(const LineScreen());
+    } else {
       nextPage();
-      RouteManagement.goToPage(const MainScreen());
-
     }
   }
-
 
   void onPageChange(page) {
     currentPage = page;
@@ -58,5 +54,4 @@ class OnBoardingController extends GetxController {
     pageController.nextPage(duration: Duration(microseconds: 300), curve: Curves.easeIn);
     update();
   }
-
 }

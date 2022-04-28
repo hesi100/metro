@@ -11,24 +11,29 @@ import 'package:metro/views/widgets/share/texts/styled_text.dart';
 class LineItem extends StatelessWidget {
   const LineItem({required this.line, Key? key}) : super(key: key);
   final LineModel line;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return InkWell(
-      onTap: (){
-        RouteManagement.goToPage(LineScreen(line: line));
+      onTap: () {
+        RouteManagement.goToPage(const LineScreen());
       },
-      child:Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24,vertical: 18),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 18),
         height: 100,
         width: width,
         color: line.color,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            StyledTextShow(line.name,bold: true,size: font24,color: Colors.white,),
+            StyledTextShow(
+              line.name,
+              bold: true,
+              size: font24,
+              color: Colors.white,
+            ),
             SvgPicture.asset(icon("arrow_left"))
-
           ],
         ),
       ),

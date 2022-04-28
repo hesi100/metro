@@ -17,3 +17,7 @@ BoxShadow boxShadow = BoxShadow(
   offset: const Offset(0, 3),
 );
 
+
+int getMinutesToNext(){
+  return 0 ;
+}

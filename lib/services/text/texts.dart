@@ -25,8 +25,6 @@ const Map weights = {
   'black': FontWeight.w900,
 };
 
-
-
 String fontFamily = 'iranYekan';
 
 TextStyle textStyle(size, color, {fontWeight = FontWeight.normal, height = 1.0, dec = TextDecoration.none}) {

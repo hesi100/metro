@@ -1,13 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/onBoarding/on_boarding_controller.dart';
 import '../../../services/colors.dart';
 import '../../../services/text/texts.dart';
 import '../../widgets/share/texts/styled_text.dart';
-
 
 class OnBoardingPage extends StatefulWidget {
   final int position;
@@ -45,7 +43,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       width: controller.currentPage == widget.item['id'] - 1 ? width * 0.6 : 0,
                       child: Image.asset(
                         widget.item['img'],
-                        width:  width * 0.6,
+                        width: width * 0.6,
                       ),
                       curve: Curves.easeOut,
                       duration: Duration(milliseconds: 500),

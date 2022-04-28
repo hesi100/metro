@@ -128,3 +128,5 @@ const Color soLightGray = Color(0xff686868);
 const Color lightNeonGreen = Color(0xff79F5DF);
 const Color darkRegularGrayText = Color(0xff424243);
 const Color searchBackground = Color(0xffA7A7BD);
+const Color text = Color(0xff59597C);
+const Color textLight = Color(0xff88879C);
