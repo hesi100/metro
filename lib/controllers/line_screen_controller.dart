@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:get/get.dart';
 import 'package:metro/model/line_model.dart';
 import 'package:metro/model/station_model.dart';
@@ -21,9 +23,18 @@ class LineController extends GetxController {
     });
   }
 
+  void startTimer() {
+
+    const oneSec = Duration(seconds: 10);
+    Timer.periodic(oneSec, (Timer timer) {
+      update();
+    });
+  }
+
   @override
   void onInit() {
     stations.addAll(line.stations);
+    startTimer();
     super.onInit();
   }
 }

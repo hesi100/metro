@@ -4,5 +4,6 @@ class TimeModel {
   TimeModel({required this.time});
 
   DateTime time = DateTime.now();
+
   Color color = Colors.red;
 }

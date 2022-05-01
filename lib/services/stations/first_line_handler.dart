@@ -1,230 +1,40 @@
+import 'package:flutter/material.dart';
 import 'package:metro/model/station_model.dart';
 import 'package:metro/model/time_model.dart';
 
 class FirstLineHandler {
-  static StationModel getElgoliStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 58);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 26);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 21, 7))) {
+  static void addArrivalTimes(startTimeToFirst, startTimeToLast, List<TimeModel> toFirst, List<TimeModel> toLast, count) {
+    for (int i = 0; i < count; i++) {
       toFirst.add(TimeModel(time: startTimeToFirst));
       toLast.add(TimeModel(time: startTimeToLast));
       startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
       startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
     }
-    StationModel station = StationModel(name: "ایستگاه ائل گولی");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
+    startTimeToFirst = toFirst.first.time.add(const Duration(days: 1));
+    startTimeToLast = toLast.first.time.add(const Duration(days: 1));
+    for (int i = 0; i < count; i++) {
+      toFirst.add(TimeModel(time: startTimeToFirst));
+      toLast.add(TimeModel(time: startTimeToLast));
+      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
+      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
+    }
   }
 
-  static StationModel getSahandStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 55);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 29);
+  static StationModel getStation(
+    String stationName,
+    TimeOfDay startToFirst,
+    TimeOfDay startToLast,
+  ) {
+    DateTime startTimeFromLast =
+        DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, startToFirst.hour, startToFirst.minute);
+    DateTime startTimeFromFirst =
+        DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, startToLast.hour, startToLast.minute);
 
     List<TimeModel> toFirst = [];
     List<TimeModel> toLast = [];
 
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 21, 4))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه سهند");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getEmamRezaStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 53);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 31);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 21, 2))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه امام رضا");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getKhayyamStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 51);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 33);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 21, 0))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه خیام");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel get29BahmanStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 49);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 35);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 58))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه 29 بهمن");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getOstadShariyarStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 47);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 37);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 56))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه استاد شهریار");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getDaneshgahStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 45);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 39);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 54))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه دانشگاه");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getAberasanStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 43);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 41);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 52))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه آبرسان");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getGotbStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 41);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 43);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 52))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه میدان قطب");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getShahidBehestiStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 39);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 45);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 50))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه شهید بهشتی");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getMeydanSaatStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 37);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 47);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 48))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه میدان ساعت");
-    station.timesToFirstStation = toFirst;
-    station.timesToLastStation = toLast;
-    return station;
-  }
-
-  static StationModel getMeydanKohanStation() {
-    DateTime startTimeToFirst = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 35);
-    DateTime startTimeToLast = DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 6, 49);
-
-    List<TimeModel> toFirst = [];
-    List<TimeModel> toLast = [];
-
-    while (startTimeToFirst.isBefore(DateTime(DateTime.now().year, DateTime.now().month, DateTime.now().day, 20, 46))) {
-      toFirst.add(TimeModel(time: startTimeToFirst));
-      toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
-    }
-    StationModel station = StationModel(name: "ایستگاه میدان کهن");
+    addArrivalTimes(startTimeFromLast, startTimeFromFirst, toFirst, toLast, 54);
+    StationModel station = StationModel(name: stationName);
     station.timesToFirstStation = toFirst;
     station.timesToLastStation = toLast;
     return station;
@@ -232,18 +42,25 @@ class FirstLineHandler {
 
   static List<StationModel> getLineStations() {
     List<StationModel> line1Stations = [];
-    line1Stations.add(getElgoliStation());
-    line1Stations.add(getSahandStation());
-    line1Stations.add(getEmamRezaStation());
-    line1Stations.add(getKhayyamStation());
-    line1Stations.add(get29BahmanStation());
-    line1Stations.add(getOstadShariyarStation());
-    line1Stations.add(getDaneshgahStation());
-    line1Stations.add(getAberasanStation());
-    line1Stations.add(getGotbStation());
-    line1Stations.add(getShahidBehestiStation());
-    line1Stations.add(getMeydanSaatStation());
-    line1Stations.add(getMeydanKohanStation());
+    line1Stations.add(getStation("ایستگاه ائل گولی", const TimeOfDay(hour: 6, minute: 58), const TimeOfDay(hour: 6, minute: 26)));
+    line1Stations.add(getStation("ایستگاه سهند", const TimeOfDay(hour: 6, minute: 55), const TimeOfDay(hour: 6, minute: 29)));
+    line1Stations.add(getStation("ایستگاه امام رضا", const TimeOfDay(hour: 6, minute: 53), const TimeOfDay(hour: 6, minute: 31)));
+    line1Stations.add(getStation("ایستگاه خیام", const TimeOfDay(hour: 6, minute: 51), const TimeOfDay(hour: 6, minute: 33)));
+    line1Stations.add(getStation("ایستگاه 29 بهمن", const TimeOfDay(hour: 6, minute: 49), const TimeOfDay(hour: 6, minute: 35)));
+    line1Stations
+        .add(getStation("ایستگاه استاد شهریار", const TimeOfDay(hour: 6, minute: 47), const TimeOfDay(hour: 6, minute: 37)));
+    line1Stations.add(getStation("ایستگاه دانشگاه", const TimeOfDay(hour: 6, minute: 45), const TimeOfDay(hour: 6, minute: 39)));
+    line1Stations.add(getStation("ایستگاه آبرسان", const TimeOfDay(hour: 6, minute: 43), const TimeOfDay(hour: 6, minute: 41)));
+    line1Stations
+        .add(getStation("ایستگاه میدان قطب", const TimeOfDay(hour: 6, minute: 41), const TimeOfDay(hour: 6, minute: 43)));
+    line1Stations
+        .add(getStation("ایستگاه شهید بهشتی", const TimeOfDay(hour: 6, minute: 39), const TimeOfDay(hour: 6, minute: 45)));
+    line1Stations
+        .add(getStation("ایستگاه میدان ساعت", const TimeOfDay(hour: 6, minute: 37), const TimeOfDay(hour: 6, minute: 47)));
+    line1Stations
+        .add(getStation("ایستگاه میدان کهن", const TimeOfDay(hour: 6, minute: 35), const TimeOfDay(hour: 6, minute: 49)));
     return line1Stations;
   }
+
+
 }

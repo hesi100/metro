@@ -14,4 +14,6 @@ class StationModel {
   List<TimeModel> timesToFirstStation = [];
   List<TimeModel> timesToLastStation = [];
   Color color = Colors.red;
+
+
 }
