@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418137778440",
+    "project_id": "tabriz-metro-6c617",
+    "storage_bucket": "tabriz-metro-6c617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418137778440:android:bb24d46b74a2c6e787e4bd",
+        "android_client_info": {
+          "package_name": "ir.tmvco.metro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418137778440-9g6vo9vma65c9ur9jbjo0am2qkbsk6au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrskh1T_FP30FPLq_GOZFuAl5I7NxrFUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418137778440-9g6vo9vma65c9ur9jbjo0am2qkbsk6au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
