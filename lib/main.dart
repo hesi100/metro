@@ -38,8 +38,6 @@ Future<void> initService() async {
   }
   await DeviceInfoService.getInstance();
   AnalyticService.sendPhoneData();
-  await FlutterStatusbarcolor.setStatusBarColor(Colors.white);
-  await FlutterStatusbarcolor.setNavigationBarColor(Colors.white);
 
   WidgetsFlutterBinding.ensureInitialized();
 }

@@ -1,13 +1,10 @@
 import 'package:dotted_line/dotted_line.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:metro/model/station_model.dart';
 import 'package:metro/services/colors.dart';
-import 'package:metro/services/route_management.dart';
 import 'package:metro/services/settings.dart';
 import 'package:metro/services/text/texts.dart';
-import 'package:metro/views/screen/station_screen.dart';
 import 'package:metro/views/widgets/share/texts/styled_text.dart';
 
 class StationItem extends StatelessWidget {
@@ -17,6 +14,7 @@ class StationItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+
     return InkWell(
       onTap: () {
         // RouteManagement.goToPage(StationScreen(station: station));
@@ -25,7 +23,7 @@ class StationItem extends StatelessWidget {
         padding: const EdgeInsets.symmetric(
           horizontal: 16,
         ),
-        height: 103,
+        height: 120,
         margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 16),
         width: width,
         decoration: BoxDecoration(color: white, borderRadius: BorderRadius.circular(8)),
@@ -63,8 +61,12 @@ class StationItem extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          StyledTextShow("به سمت "+station.firstStationName, bold: true, size: font12, color: textLight),
                           StyledTextShow(getMinutesToNext(station.timesToFirstStation), size: font12, color: textLight),
+                          StyledTextShow(station.name ==   "ایستگاه "  +station.firstStationName ? "تا رسیدن قطار بعدی" : "تا حرکت قطار بعدی", bold: true, size: font12, color: textLight),
+                          Visibility(
+                              visible: station.name != "ایستگاه "  +station.firstStationName && station.name != "ایستگاه "  +station.lastStationName,
+                              child: StyledTextShow("به سمت " + station.firstStationName,
+                                  bold: true, size: font12, color: textLight)),
                         ],
                       ),
                       Container(
@@ -85,7 +87,6 @@ class StationItem extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsetsDirectional.only(end: 10),
-
                         height: 6,
                         width: 6,
                         decoration:
@@ -93,8 +94,13 @@ class StationItem extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          StyledTextShow("به سمت "+station.lastStationName, bold: true, size: font12, color: textLight),
                           StyledTextShow(getMinutesToNext(station.timesToLastStation), size: font12, color: textLight),
+                          StyledTextShow("ایستگاه " + station.lastStationName == station.name ? "تا رسیدن قطار بعدی" : "تا حرکت قطار بعدی", bold: true, size: font12, color: textLight),
+                          Visibility(
+                              visible:  station.name !=  "ایستگاه " + station.firstStationName && station.name !=  "ایستگاه " + station.lastStationName,
+                              child: StyledTextShow("به سمت " + station.lastStationName,
+                                  bold: true, size: font12, color: textLight)),
+
                         ],
                       ),
                     ],

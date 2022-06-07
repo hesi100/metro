@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:metro/model/time_model.dart';
 
 class StationModel {
-  StationModel({required this.name,this.lineName = "خط یک",this.firstStationName="ایل گولی",this.lastStationName="لاله"});
+  StationModel({required this.name,this.lineName = "خط یک",this.firstStationName="ائل گولی",this.lastStationName="میدان کهن"});
 
   String name = "";
   String lineName = "";
