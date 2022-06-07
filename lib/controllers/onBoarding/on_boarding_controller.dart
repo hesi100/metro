@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:metro/services/storage/storage_controller.dart';
 import 'package:metro/views/screen/line_screen.dart';
 
 import '../../services/route_management.dart';
@@ -34,11 +35,14 @@ class OnBoardingController extends GetxController {
   void onSkipTap() {
     RouteManagement.back();
     RouteManagement.goToPage(const LineScreen());
+    StorageController.setFirst();
   }
 
   void onButtonTap() {
     if (currentPage == 2) {
       RouteManagement.goToPage(const LineScreen());
+      StorageController.setFirst();
+
     } else {
       nextPage();
     }

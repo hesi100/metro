@@ -21,6 +21,7 @@ class LineController extends GetxController {
         stations.add(element);
       }
     });
+    update();
   }
 
   void startTimer() {

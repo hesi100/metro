@@ -18,13 +18,13 @@ class OnBoardingPage extends StatefulWidget {
 }
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
-  OnBoardingController controller = Get.put(OnBoardingController());
 
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
     return GetBuilder<OnBoardingController>(
+      init: OnBoardingController(),
       builder: (controller) {
         return Container(
             margin: EdgeInsets.only(

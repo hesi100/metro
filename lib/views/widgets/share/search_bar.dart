@@ -15,7 +15,7 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return Container(
-      height: 40,
+      height: 53,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(color: searchBackground.withOpacity(0.19), borderRadius: BorderRadius.circular(4)),
       child: Row(
@@ -28,7 +28,6 @@ class SearchBar extends StatelessWidget {
             width: width - 96,
             child: TextIn(
               textInput: searchText,
-              bottomPadding: 0,
               onChanged: onChange,
               enableColor: Colors.transparent,
               focusColor: Colors.transparent,

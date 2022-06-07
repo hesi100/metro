@@ -96,7 +96,7 @@ class TextIn extends StatelessWidget {
             : Container(),
         Container(
           width: width,
-          height: minLines > 1 ? null : 40,
+          height: minLines > 1 ? null : 48,
           alignment: Alignment.center,
           decoration: BoxDecoration(borderRadius: borderRadius, color: enable ? color : disableColor),
           child: TextField(
@@ -109,9 +109,9 @@ class TextIn extends StatelessWidget {
             controller: textInput.textController,
             focusNode: textInput.focus,
             style: textStyle(
-              font12,
+              font16,
               enable ? textColor : border,
-              height: 1.5,
+              height: 1.4,
             ),
             enabled: enable,
             cursorColor: focusColor,
@@ -130,7 +130,7 @@ class TextIn extends StatelessWidget {
             maxLines: maxLines,
             decoration: InputDecoration(
                 counterText: '',
-                contentPadding: EdgeInsetsDirectional.only(start: 10, end: 10, top: 16, bottom: 16),
+                contentPadding: EdgeInsetsDirectional.only(start: 10, end: 10, ),
                 focusedBorder: OutlineInputBorder(
                     borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(10)),
                     borderSide: BorderSide(width: 2, color: focusColor)),
@@ -141,7 +141,7 @@ class TextIn extends StatelessWidget {
                     borderRadius: borderRadius ?? BorderRadius.all(Radius.circular(10)),
                     borderSide: BorderSide(width: 2, color: textInput.error != "" ? errorColor : enableColor)),
                 hintText: placeHolderText,
-                hintStyle: textStyle(font12, placeColor, fontWeight: FontWeight.w700, height: 1.0),
+                hintStyle: textStyle(font14, placeColor, fontWeight: FontWeight.w700, height: 1.0),
                 prefixIcon: rightIcon != null
                     ? Container(
                         padding: EdgeInsetsDirectional.only(start: 12, end: 8),

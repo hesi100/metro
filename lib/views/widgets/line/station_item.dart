@@ -19,7 +19,7 @@ class StationItem extends StatelessWidget {
     double width = MediaQuery.of(context).size.width;
     return InkWell(
       onTap: () {
-        RouteManagement.goToPage(StationScreen(station: station));
+        // RouteManagement.goToPage(StationScreen(station: station));
       },
       child: Container(
         padding: const EdgeInsets.symmetric(
@@ -38,15 +38,16 @@ class StationItem extends StatelessWidget {
                 children: [
                   StyledTextShow(
                     station.name,
-                    size: font14,
+                    size: font16,
                     color: text,
+                    bold: true,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
                     child: StyledTextShow(
                       station.lineName,
                       bold: true,
-                      size: font10,
+                      size: font14,
                       color: textLight,
                     ),
                   ),
@@ -62,8 +63,8 @@ class StationItem extends StatelessWidget {
                     children: [
                       Column(
                         children: [
-                          StyledTextShow("به سمت "+station.firstStationName, bold: true, size: font10, color: textLight),
-                          StyledTextShow(getMinutesToNext(station.timesToFirstStation), size: font10, color: textLight),
+                          StyledTextShow("به سمت "+station.firstStationName, bold: true, size: font12, color: textLight),
+                          StyledTextShow(getMinutesToNext(station.timesToFirstStation), size: font12, color: textLight),
                         ],
                       ),
                       Container(
@@ -92,28 +93,28 @@ class StationItem extends StatelessWidget {
                       ),
                       Column(
                         children: [
-                          StyledTextShow("به سمت "+station.lastStationName, bold: true, size: font10, color: textLight),
-                          StyledTextShow(getMinutesToNext(station.timesToLastStation), size: font10, color: textLight),
+                          StyledTextShow("به سمت "+station.lastStationName, bold: true, size: font12, color: textLight),
+                          StyledTextShow(getMinutesToNext(station.timesToLastStation), size: font12, color: textLight),
                         ],
                       ),
                     ],
                   ),
-                  Container(
-                    height: 29,
-                    width: 29,
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      gradient: const RadialGradient(
-                        center: Alignment.topLeft,
-                        stops: [0.1,0.99],
-                        colors: [Color(0xff85D3FF),Color(0xff2596D7),
-                        ]
-                      ),
-                      
-                    ),
-                    child: SvgPicture.asset(icon("feather_arrow_right"),width: 20),
-                  )
+                  // Container(
+                  //   height: 29,
+                  //   width: 29,
+                  //   padding: const EdgeInsets.all(5),
+                  //   decoration: BoxDecoration(
+                  //     borderRadius: BorderRadius.circular(8),
+                  //     gradient: const RadialGradient(
+                  //       center: Alignment.topLeft,
+                  //       stops: [0.1,0.99],
+                  //       colors: [Color(0xff85D3FF),Color(0xff2596D7),
+                  //       ]
+                  //     ),
+                  //
+                  //   ),
+                  //   child: SvgPicture.asset(icon("feather_arrow_right"),width: 20),
+                  // )
                 ],
               ),
             ),
