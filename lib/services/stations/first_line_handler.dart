@@ -10,14 +10,21 @@ class FirstLineHandler {
       startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
       startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
     }
-    startTimeToFirst = toFirst.first.time.add(const Duration(days: 1));
-    startTimeToLast = toLast.first.time.add(const Duration(days: 1));
-    for (int i = 0; i < count; i++) {
+    if(DateTime.now().isBefore(toFirst.last.time)&&DateTime.now().isBefore(toLast.last.time)){
+      startTimeToFirst = toFirst.first.time.add(const Duration(days: 1));
+      startTimeToLast = toLast.first.time.add(const Duration(days: 1));
+      toFirst=[];
+      toLast = [];
       toFirst.add(TimeModel(time: startTimeToFirst));
       toLast.add(TimeModel(time: startTimeToLast));
-      startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
-      startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
+      for (int i = 0; i < count; i++) {
+        toFirst.add(TimeModel(time: startTimeToFirst));
+        toLast.add(TimeModel(time: startTimeToLast));
+        startTimeToFirst = startTimeToFirst.add(const Duration(minutes: 16));
+        startTimeToLast = startTimeToLast.add(const Duration(minutes: 16));
+      }
     }
+
   }
 
   static StationModel getStation(

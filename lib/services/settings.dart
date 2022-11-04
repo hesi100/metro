@@ -18,7 +18,7 @@ BoxShadow boxShadow = BoxShadow(
   offset: const Offset(0, 3),
 );
 
-String getMinutesToNext(List<TimeModel> times) {
+String  getMinutesToNext(List<TimeModel> times) {
   for (var element in times) {
     if (element.time.isAfter(DateTime.now())) {
       int minutes = element.time.difference(DateTime.now()).inMinutes;
@@ -29,6 +29,16 @@ String getMinutesToNext(List<TimeModel> times) {
       }
 
     }
+  }
+  return "";
+}
+
+String getMinutesToTime(TimeModel element) {
+  int minutes = element.time.difference(DateTime.now()).inMinutes;
+  if(minutes < 60){
+    return "$minutes دقیقه";
+  }else{
+    return "${minutes~/60} ساعت و "+"${minutes%60} دقیقه";
   }
   return "";
 }
